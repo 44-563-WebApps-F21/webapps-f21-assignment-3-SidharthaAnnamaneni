@@ -75,5 +75,22 @@
         <td>20 INR</td>
     </tr>
 </table>
+<hr>
+<h2>Prefix function - Knuth-Morris-Pratt: </h2>
+<blockquote>
+    Knuth-Morris and Pratt introduce a linear time algorithm for the string matching problem. 
+    A matching time of O (n) is achieved by avoiding comparison with an element of 'S' that have previously been involved 
+    in comparison with some element of the pattern 'p' to be matched. i.e., backtracking on the string 'S' never occurs</blockquote>
+    <a href = "https://www.javatpoint.com/daa-knuth-morris-pratt-algorithm">Read More: </a>
+
+<pre>vector<int> prefix_function(string s) {
+    int n = (int)s.length();
+    vector<int> pi(n);
+    for (int i = 0; i < n; i++)
+        for (int k = 0; k <= i; k++)
+            if (s.substr(0, k) == s.substr(i-k+1, k))
+                pi[i] = k;
+    return pi;
+}</pre>
 </body>
 </html>
